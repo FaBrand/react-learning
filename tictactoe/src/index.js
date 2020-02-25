@@ -6,13 +6,22 @@ import './index.css';
 /**
  */
 class Square extends React.Component {
-/**
+  /**
+   * @param {props} props
+   */
+  constructor(props) {
+    super(props);
+    this.state={
+      value: null,
+    };
+  }
+  /**
  * @return {void}
  */
   render() {
     return (
-      <button className="square">
-        {/* TODO */}
+      <button className="square" onClick={() => this.setState({value: 'X'})}>
+        {this.state.value}
       </button>
     );
   }
@@ -27,7 +36,7 @@ class Board extends React.Component {
    * @return {void}
    */
   renderSquare(i) {
-    return <Square />;
+    return <Square value={i}/>;
   }
 
   /**
